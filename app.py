@@ -1,8 +1,8 @@
 import streamlit as st
-# import pickle
+import pickle
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+# from sklearn.feature_extraction.text import TfidfVectorizer
+# from sklearn.metrics.pairwise import cosine_similarity
 
 # ==========================================
 # PAGE CONFIG
@@ -18,31 +18,31 @@ st.set_page_config(
 # LOAD DATA
 # ==========================================
 
-# @st.cache_data
-# def load_data():
-#     movies = pickle.load(open("movies.pkl", "rb"))
-#     similarity = pickle.load(open("similarity.pkl", "rb"))
-#     return movies, similarity
-
 @st.cache_data
 def load_data():
-
-    movies = pd.read_csv(
-        "data/processed_movies.csv"
-    )
-
-    tfidf = TfidfVectorizer(
-        max_features=5000,
-        stop_words="english"
-    )
-
-    vectors = tfidf.fit_transform(
-        movies["tags"]
-    ).toarray()
-
-    similarity = cosine_similarity(vectors)
-
+    movies = pickle.load(open("movies.pkl", "rb"))
+    similarity = pickle.load(open("similarity.pkl", "rb"))
     return movies, similarity
+
+# @st.cache_data
+# def load_data():
+
+#     movies = pd.read_csv(
+#         "data/processed_movies.csv"
+#     )
+
+#     tfidf = TfidfVectorizer(
+#         max_features=5000,
+#         stop_words="english"
+#     )
+
+#     vectors = tfidf.fit_transform(
+#         movies["tags"]
+#     ).toarray()
+
+#     similarity = cosine_similarity(vectors)
+
+#     return movies, similarity
 
 movies, similarity = load_data()
 
