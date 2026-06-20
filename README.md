@@ -204,6 +204,11 @@ Titan A.E.
 ```
 
 ---
+## 🚀 Live Demo
+
+🔗 Streamlit App: https://sanketabnave-movie-recommendation-system-app-vwa3ym.streamlit.app/
+
+Try the application live and get movie recommendations instantly.
 
 ## 🎯 Machine Learning Concepts Used
 
